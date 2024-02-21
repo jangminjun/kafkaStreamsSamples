@@ -23,15 +23,15 @@ public class ProducerApp {
         return Multi.createFrom().ticks().every(Duration.ofSeconds(1))
                 .onOverflow().drop()
                 .map(tick -> {
-                    String currentPayment = "Payment-" + random.nextInt(10);
-                    int currentMeasure = random.nextInt(100);
+                    String empID = "Payment-" + random.nextInt(20);
+                    int currentPayment = random.nextInt(2000);
 
-                    LOG.infov("Payment ID: {0}, measure: {1}",
-                            currentPayment,
-                            currentMeasure
+                    LOG.infov("Employee ID: {0}, measure: {1}",
+                            empID,
+                            currentPayment
                     );
 
-                    return Record.of(currentPayment, currentMeasure);
+                    return Record.of(empID, currentPayment);
                 });
     }
 }

@@ -26,7 +26,7 @@ public class PaymentsStream {
         StreamsBuilder builder = new StreamsBuilder();
         KStream<String, Integer> stream = builder.stream("payments", Consumed.with(keySerde, valueSerde));
 
-        stream.foreach((key, amount) -> System.out.println("Received payment: " + amount));
+        stream.foreach((key, amount) -> System.out.println("ID : " + key + " Received payment: " + amount));
 
         stream
             .filter((key, amount) -> amount > 1000)
