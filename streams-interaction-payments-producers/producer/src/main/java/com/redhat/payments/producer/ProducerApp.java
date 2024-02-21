@@ -56,7 +56,11 @@ public class ProducerApp {
 
             producer.send(record);
             printRecord(record);
-            sleep(1000);
+            try {
+                Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    System.out.println("error");
+                }
         }
 
         producer.close();
