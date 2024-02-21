@@ -10,7 +10,7 @@
   <packaging>jar</packaging>
   <parent>
     <groupId>com.redhat.payments</groupId>
-    <artifactId>payments</artifactId>
+    <artifactId>producer</artifactId>
     <version>1.0</version>
   </parent>
 
