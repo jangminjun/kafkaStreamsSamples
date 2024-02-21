@@ -1,4 +1,4 @@
-package com.redhat.telemetry.producer;
+package com.redhat.payments.producer;
 
 import java.util.Properties;
 import java.util.Random;
