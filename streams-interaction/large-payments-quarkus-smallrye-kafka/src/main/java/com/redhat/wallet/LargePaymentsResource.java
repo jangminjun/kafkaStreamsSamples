@@ -1,4 +1,4 @@
-package com.redhat.telemetry;
+package com.redhat.wallet;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
