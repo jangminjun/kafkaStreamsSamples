@@ -41,6 +41,7 @@ public class ProducerApp {
                         } catch(InterruptedException e){
                             e.printStackTrace();
                         }
+                        return Record.of(String.valueOf(num), currentTime);
 
                     } else{
                         LOG.infov("Event sent : {0}, {1} - (on time)", num, currentTime);
