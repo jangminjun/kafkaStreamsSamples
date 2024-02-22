@@ -6,7 +6,7 @@ public class PotentialCustomersWereDetected {
 
     public PotentialCustomersWereDetected() {}
 
-    public PotentialCustomersWereDetected(String num, Integer timestamp) {
+    public PotentialCustomersWereDetected(String num, Long timestamp) {
         this.num = num;
         this.timestamp = timestamp;
     }
