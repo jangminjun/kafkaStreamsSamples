@@ -25,7 +25,7 @@ public class ProducerApp {
                 .onOverflow().drop()
                 .map(tick -> {
                     Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-                    Long currentTime = timestamp.getTime();
+                    long currentTime = timestamp.getTime();
                     num++;
                     LOG.infov("Event sent : {0}, measure: {1}",
                             num,
