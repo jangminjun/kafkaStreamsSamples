@@ -28,7 +28,7 @@ public class TumblingWindows extends StreamProcessor {
     @Produces
     private KafkaStreams streams;
 
-    void onStart(@Observes StartupEvent startupEvent) {
+    static void onStart(@Observes StartupEvent startupEvent) {
         StreamsBuilder builder = new StreamsBuilder();
 
         ObjectMapperSerde<PotentialCustomersWereDetected> customersEventSerde
@@ -54,7 +54,7 @@ public class TumblingWindows extends StreamProcessor {
         streams.start();
     }
 
-    void onStop(@Observes ShutdownEvent shutdownEvent) {
+    static void onStop(@Observes ShutdownEvent shutdownEvent) {
         streams.close();
     }
 }
