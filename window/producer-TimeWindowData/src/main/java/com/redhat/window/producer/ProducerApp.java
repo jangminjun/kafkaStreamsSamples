@@ -34,7 +34,7 @@ public class ProducerApp {
                         LOG.infov("Event sent : {0}, {1} - (late)", num, currentTime);
                         System.out.println("before : " + currentTime);
                         currentTime = currentTime - 2000;
-                        System.out.println("after" + currentTime);
+                        System.out.println("after  : " + currentTime);
                         num=0;
                         try{
                             Thread.sleep(5000);
