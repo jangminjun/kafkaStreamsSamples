@@ -33,7 +33,7 @@ public class ProducerApp {
 
                         LOG.infov("Event sent : {0}, {1} - (late)", num, currentTime);
 
-                        currentTime = currentTime - 1100;
+                        currentTime = currentTime - 11000;
                         num=0;
                         try{
                             Thread.sleep(5000);
