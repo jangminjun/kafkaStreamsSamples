@@ -35,7 +35,7 @@ public class ProducerApp {
                         System.out.println("before : " + currentTime);
                         currentTime = currentTime - 2000;
                         System.out.println("after  : " + currentTime);
-                        num=0;
+
                         try{
                             Thread.sleep(5000);
                         } catch(InterruptedException e){
@@ -45,8 +45,9 @@ public class ProducerApp {
 
                     } else{
                         LOG.infov("Event sent : {0}, {1} - (on time)", num, currentTime);
+                        return Record.of(String.valueOf(num), currentTime);
                     }
-                    return Record.of(String.valueOf(num), currentTime);
+
                 });
     }
 }
