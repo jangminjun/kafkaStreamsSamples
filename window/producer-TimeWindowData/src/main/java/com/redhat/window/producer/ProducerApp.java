@@ -47,7 +47,7 @@ public class ProducerApp {
                         }
 
                     }
-                    return Record.of(num.toString, currentTime);
+                    return Record.of(String.valueOf(num), currentTime);
                 });
     }
 }
