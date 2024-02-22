@@ -19,7 +19,7 @@ public class ProducerApp {
 
     // TODO: Implement the Kafka producer
     @Outgoing("potential-customers-detected")
-    public Multi<Record<Integer, Long>> generate() {
+    public Multi<Record<String, Long>> generate() {
 
         return Multi.createFrom().ticks().every(Duration.ofSeconds(1))
                 .onOverflow().drop()
@@ -47,7 +47,7 @@ public class ProducerApp {
                         }
 
                     }
-                    return Record.of(num, currentTime);
+                    return Record.of(num.toString, currentTime);
                 });
     }
 }
