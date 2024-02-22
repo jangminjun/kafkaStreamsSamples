@@ -30,9 +30,8 @@ public class ProducerApp {
 
                     if(num % 10 ==0)
                     {
-                        System.out.println("before : " + currentTime);
+
                         currentTime = currentTime - 2000;
-                        System.out.println("after  : " + currentTime);
                         LOG.infov("Event sent : {0}, {1} - (late)", num, currentTime);
 
                         try{
