@@ -11,8 +11,6 @@ import java.util.Random;
 public abstract class StreamProcessor {
     private final Random random = new Random();
 
-    @ConfigProperty(name = "my-cluster-kafka-bootstrap.kafka.svc:9092")
-    String bootstrapServers;
 
     protected Properties generateStreamConfig() {
         Properties props = new Properties();
@@ -24,7 +22,7 @@ public abstract class StreamProcessor {
 
         props.put(
                 StreamsConfig.BOOTSTRAP_SERVERS_CONFIG,
-                bootstrapServers
+                "my-cluster-kafka-bootstrap.kafka.svc:9092"
         );
 
         return props;
