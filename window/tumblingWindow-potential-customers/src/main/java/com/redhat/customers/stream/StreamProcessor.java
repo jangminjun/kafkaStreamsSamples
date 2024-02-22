@@ -22,7 +22,7 @@ public abstract class StreamProcessor {
 
         props.put(
                 StreamsConfig.BOOTSTRAP_SERVERS_CONFIG,
-                "my-cluster-kafka-bootstrap.kafka.svc:9092"
+                "my-cluster-kafka-bootstrap.efnalf-kafka-cluster.svc:9092"
         );
 
         return props;
