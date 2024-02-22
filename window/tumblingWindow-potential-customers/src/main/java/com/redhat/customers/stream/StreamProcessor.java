@@ -11,35 +11,11 @@ import java.util.Random;
 public abstract class StreamProcessor {
     private final Random random = new Random();
 
-    @ConfigProperty(name = "quarkus.kafka-streams.bootstrap-servers")
+    @ConfigProperty(name = "my-cluster-kafka-bootstrap.kafka.svc:9092")
     String bootstrapServers;
-
-    @ConfigProperty(name = "kafka.security.protocol")
-    String securityProtocol;
-
-    @ConfigProperty(name = "kafka.ssl.truststore.location")
-    String truststoreLocation;
-
-    @ConfigProperty(name = "kafka.ssl.truststore.password")
-    String truststorePassword;
 
     protected Properties generateStreamConfig() {
         Properties props = new Properties();
-
-        props.put(
-                CommonClientConfigs.SECURITY_PROTOCOL_CONFIG,
-                securityProtocol
-        );
-
-        props.put(
-                SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG,
-                truststoreLocation
-        );
-
-        props.put(
-                SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG,
-                truststorePassword
-        );
 
         props.put(
                 StreamsConfig.APPLICATION_ID_CONFIG,

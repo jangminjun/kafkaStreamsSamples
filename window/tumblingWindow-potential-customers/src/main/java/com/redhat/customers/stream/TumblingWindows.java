@@ -41,7 +41,7 @@ public class TumblingWindows extends StreamProcessor {
         ).groupByKey()
         .windowedBy(
                 TimeWindows.of(Duration.ofSeconds(WINDOW_SIZE))
-                        .grace(Duration.ofSeconds(12))
+                        .grace(Duration.ofSeconds(10))
         ).count()
         .toStream()
         .print(Printed.toSysOut());
