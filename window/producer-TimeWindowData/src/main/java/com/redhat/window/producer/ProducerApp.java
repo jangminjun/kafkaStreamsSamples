@@ -27,14 +27,11 @@ public class ProducerApp {
                     Timestamp timestamp = new Timestamp(System.currentTimeMillis());
                     long currentTime = timestamp.getTime();
                     num++;
-                    LOG.infov("Event sent : {0}, measure: {1}",
-                            num,
-                            currentTime
-                    );
+
                     if(num % 10 ==0)
                     {
 
-                        LOG.infov("Event sent : {0} - {1} late",
+                        LOG.infov("Event sent : {0} - {1} - (late)",
                                 num, currentTime
                         );
 
@@ -46,6 +43,10 @@ public class ProducerApp {
                             e.printStackTrace();
                         }
 
+                    } else{
+                        LOG.infov("Event sent : {0}, measure: {1} - (on time),
+                                num, currentTime
+                        );
                     }
                     return Record.of(String.valueOf(num), currentTime);
                 });
