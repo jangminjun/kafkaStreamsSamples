@@ -44,7 +44,7 @@ public class ProducerApp {
                         }
 
                     } else{
-                        LOG.infov("Event sent : {0}, measure: {1} - (on time),
+                        LOG.infov("Event sent : {0}, measure: {1} - (on time)",
                                 num, currentTime
                         );
                     }
