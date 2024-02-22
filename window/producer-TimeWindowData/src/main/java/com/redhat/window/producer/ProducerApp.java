@@ -31,9 +31,7 @@ public class ProducerApp {
                     if(num % 10 ==0)
                     {
 
-                        LOG.infov("Event sent : {0}, {1} - (late)",
-                                num, currentTime
-                        );
+                        LOG.infov("Event sent : {0}, {1} - (late)", num, currentTime);
 
                         currentTime = currentTime - 1100;
                         num=0;
@@ -44,9 +42,7 @@ public class ProducerApp {
                         }
 
                     } else{
-                        LOG.infov("Event sent : {0}, {1} - (on time)",
-                                num, currentTime
-                        );
+                        LOG.infov("Event sent : {0}, {1} - (on time)", num, currentTime);
                     }
                     return Record.of(String.valueOf(num), currentTime);
                 });
