@@ -58,6 +58,7 @@
   </dependencies>
   <build>
     <plugins>
+
       <plugin>
         <groupId>${quarkus.platform.group-id}</groupId>
         <artifactId>quarkus-maven-plugin</artifactId>
@@ -66,10 +67,12 @@
         <executions>
           <execution>
             <goals>
-              <goal>build</goal>
-              <goal>generate-code</goal>
-              <goal>generate-code-tests</goal>
+              <goal>native-image</goal>
             </goals>
+            <configuration>
+              <enableJni>true</enableJni>
+            </configuration>
+
           </execution>
         </executions>
         <dependencies>
@@ -119,7 +122,7 @@
                   <goal>native-image</goal>
                 </goals>
                 <configuration>
-                  <enableHttpUrlHandler>true</enableHttpUrlHandler>
+                  <enableJni>true</enableJni>
                 </configuration>
               </execution>
             </executions>
