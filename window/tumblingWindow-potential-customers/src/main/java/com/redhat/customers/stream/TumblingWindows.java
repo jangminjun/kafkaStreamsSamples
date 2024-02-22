@@ -39,7 +39,7 @@ public class TumblingWindows extends StreamProcessor {
                 POTENTIAL_CUSTOMERS_TOPIC,
                 Consumed.with(Serdes.String(), customersEventSerde)
         ).groupByKey()
-        .windowedBy(
+            .windowedBy(
                 TimeWindows.of(Duration.ofSeconds(WINDOW_SIZE))
                         .grace(Duration.ofSeconds(12))
         ).count()
