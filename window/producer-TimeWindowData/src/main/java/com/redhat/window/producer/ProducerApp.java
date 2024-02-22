@@ -31,7 +31,7 @@ public class ProducerApp {
                     if(num % 10 ==0)
                     {
 
-                        LOG.infov("Event sent : {0} - {1} - (late)",
+                        LOG.infov("Event sent : {0}, {1} - (late)",
                                 num, currentTime
                         );
 
@@ -44,7 +44,7 @@ public class ProducerApp {
                         }
 
                     } else{
-                        LOG.infov("Event sent : {0}, measure: {1} - (on time)",
+                        LOG.infov("Event sent : {0}, {1} - (on time)",
                                 num, currentTime
                         );
                     }
