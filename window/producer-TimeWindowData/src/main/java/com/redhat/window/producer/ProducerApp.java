@@ -15,27 +15,39 @@ import org.jboss.logging.Logger;
 public class ProducerApp {
 
     private static final Logger LOG = Logger.getLogger(ProducerApp.class);
-
+    Integer num=0;
 
     // TODO: Implement the Kafka producer
     @Outgoing("potential-customers-detected")
-    public Multi<Record<String, Integer>> generate() {
-        int num=0;
+    public Multi<Record<String, String>> generate() {
+
         return Multi.createFrom().ticks().every(Duration.ofSeconds(1))
                 .onOverflow().drop()
                 .map(tick -> {
                     Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-                    String currentTime = timestamp.getTime();
+                    Long currentTime = timestamp.getTime();
+                    num++;
                     LOG.infov("Event sent : {0}, measure: {1}",
-                            num++,
+                            num,
                             currentTime
                     );
                     if(num % 10 ==0)
                     {
+
+                        LOG.infov("Event sent : {0} - {1} late",
+                                num, currentTime
+                        );
+
+                        currentTime = currentTime - 1100;
                         num=0;
-                        Thread.sleep(5);
+                        try{
+                            Thread.sleep(5000);
+                        } catch(InterruptedException e){
+                            e.printStackTrace();
+                        }
+
                     }
-                    return Record.of(num, currentTime);
+                    return Record.of(num.toString(), currentTime.toString());
                 });
     }
 }
