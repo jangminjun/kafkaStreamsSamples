@@ -7,13 +7,15 @@ import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import java.util.Properties;
 import java.util.Random;
-
+import java.util.Optional;
 public abstract class StreamProcessor {
     private final Random random = new Random();
 
     @ConfigProperty(name = "quarkus.kafka-streams.bootstrap-servers")
     String bootstrapServers;
 
+    @ConfigProperty(name = "quarkus.kafka-streams.topics")
+    private Optional<String> topic;
 
     protected Properties generateStreamConfig() {
         Properties props = new Properties();
@@ -29,6 +31,8 @@ public abstract class StreamProcessor {
                 StreamsConfig.BOOTSTRAP_SERVERS_CONFIG,
                 bootstrapServers
         );
+
+
 
         return props;
     }
