@@ -18,8 +18,8 @@ import javax.enterprise.inject.Produces;
 import java.time.Duration;
 
 @ApplicationScoped
-public class TumblingWindows extends StreamProcessor {
-    private static final Logger LOGGER = Logger.getLogger(TumblingWindows.class);
+public class HoppingTimeWindows extends StreamProcessor {
+    private static final Logger LOGGER = Logger.getLogger(HoppingTimeWindows.class);
 
     // Reading topic
     static final String POTENTIAL_CUSTOMERS_TOPIC = "potential-customers-detected";
@@ -41,7 +41,7 @@ public class TumblingWindows extends StreamProcessor {
         ).groupByKey()
         .windowedBy(
                 TimeWindows.of(Duration.ofSeconds(WINDOW_SIZE))
-                        .grace(Duration.ofSeconds(12))
+                        .advanceBy(Duration.ofSeconds(5))
         ).count()
         .toStream()
         .print(Printed.toSysOut());
