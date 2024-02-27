@@ -17,7 +17,7 @@ public class ProducerApp {
         // TODO: configure the bootstrap server
         props.put(
                 ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,
-                "my-cluster-kafka-bootstrap.kafka.svc:9092"
+                "my-cluster-kafka-bootstrap.efnalf-kafka-cluster.svc:9092"
         );
 
         // TODO: configure the key and value serializers
