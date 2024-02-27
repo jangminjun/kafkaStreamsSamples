@@ -7,7 +7,7 @@ class LargePaymentsStats {
     public float average = 0;
 
     public void add(int largePaymentsValue) {
-        float normalizedValue = (float) largePaymentsValue / 100;
+        float normalizedValue = (float) largePaymentsValue;
         count++;
         latest = normalizedValue;
         sum += normalizedValue;
